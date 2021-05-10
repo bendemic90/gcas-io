@@ -1,9 +1,14 @@
 import React from "react";
+import LoginButton from "./components/Login";
+import LogoutButton from "./components/Logout";
+import Profile from "./components/Profile";
 
 function App() {
   return (
     <div>
-      <h3>React Express Boilerplate</h3>
+      <LoginButton />
+      <LogoutButton />
+      <Profile />
     </div>
   );
 }
