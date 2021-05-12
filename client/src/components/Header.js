@@ -5,8 +5,8 @@ export default function Header() {
   return (
     <div>
       <header id="header">
-        <nav class="navbar">
-          <span class="navbar-brand mb-0 h1">GCAS v0.1</span>
+        <nav className="navbar">
+          <span className="navbar-brand mb-0 h1">GCAS v0.1</span>
             <LoginButton />
             <LogoutButton />
         </nav>
