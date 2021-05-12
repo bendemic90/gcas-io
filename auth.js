@@ -14,6 +14,14 @@ router.get(
   }
 );
 
+router.get('/clients', async (req, res) => {
+  try {
+    res.status(200).json({ message: working })
+  } catch (err) {
+    res.status(500).json(err)
+  }
+})
+
 router.get("/callback", (req, res, next) => {
   passport.authenticate("auth0", (err, user, info) => {
     if (err) {
