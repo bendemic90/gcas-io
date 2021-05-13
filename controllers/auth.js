@@ -16,6 +16,7 @@ router.get(
 
 router.get('/clients', async (req, res) => {
   try {
+    console.log(`client route`)
     res.status(200).json({ message: working })
   } catch (err) {
     res.status(500).json(err)

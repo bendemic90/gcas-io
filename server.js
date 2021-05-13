@@ -1,4 +1,4 @@
-const authRouter = require('./auth')
+const authRouter = require('./controllers/auth')
 const express = require("express");
 const mongoose = require('mongoose')
 const app = express();

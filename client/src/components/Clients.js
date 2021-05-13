@@ -11,7 +11,10 @@ const Clients = () => {
     return (
         isAuthenticated && (
             <div className="clients">
-                <h2>client info</h2>
+                <h2>Clients</h2>
+                <button className="btn-lg">View Clients</button><br/>
+                <button className="btn-lg">Add a new Client</button><br/>
+                <button className="btn-lg">Update a Client</button>
             </div>
         )
     )
