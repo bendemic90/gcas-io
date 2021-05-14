@@ -5,21 +5,20 @@ const Schema = mongoose.Schema;
 const clientSchema = new Schema ({
     added: {
         type: Date,
-        default: Date.now
+        default: new Date()
     },
     firstName: {
         type: String,
-        required: true
+        required: "First name required"
     },
     lastName: {
         type: String,
-        required: true
+        required: "Last name required"
     },
     emergencyContact: [{
         name: String,
         number: String,
-        relation: String,
-        required: true
+        relation: String
     }],
     image: String, //point to FS
     contact: [{
@@ -29,7 +28,7 @@ const clientSchema = new Schema ({
     comment: [{
         date: Date,
         body: String,
-        default: Date.now
+        //default: Date.now
     }],
 })
 
