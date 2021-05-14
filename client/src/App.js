@@ -8,6 +8,7 @@ import Clients from './components/Clients';
 import MainMenu from './components/MainMenu';
 import ProtectedRoute from './components/ProtectedRoute'
 import Auth0ProviderWithHistory from './auth/auth0-provider-with-history';
+import ViewClients from "./components/ViewClients"
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Route exact path="/" component={Profile} />
       <ProtectedRoute exact path="/clients" component={Clients} />
       <ProtectedRoute exact path="/mainmenu" component={MainMenu} />
+      <ProtectedRoute exact path="/clients/view" component={ViewClients} />
       <Footer />
     </div>
     </Auth0ProviderWithHistory>
