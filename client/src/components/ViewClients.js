@@ -1,13 +1,16 @@
-import { Client } from "../../../models/Client"
+import { useEffect, useState } from 'react'
+import axios from "axios"
 
 export default function ViewClients() {
-    const hitClients = async () => {
-        try {
-            const clients = await Client.find({})
-            console.log(clients)
-        } catch (err) {
-            res.json(err)
-        }
+
+    const [clientList, setClientList] = useState([]);
+
+    useEffect(() => {
+        getClients()
+    }, [])
+
+    const getClients = () => {
+        console.log(`getting clients`)
     }
 
     return (

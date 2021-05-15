@@ -11,11 +11,11 @@ router.get('/', async (req, res) => {
     }
 })
 
-router.get('/clients/view', async (req, res) => {
+router.get('/api/clients/view', async (req, res) => {
     try {
-        Client.findAll({})
+        Client.find({})
             .then(result => {
-                console.log(result)
+                res.json(result)
             })
     } catch (err) {
         res.json(err)
