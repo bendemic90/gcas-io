@@ -8,7 +8,7 @@ function ClientTable(props) {
 
   return (
     <div>
-      <table className="table table-striped">
+      <table id="clientTable" className="table table-striped">
         <thead>
           <tr>
             <th scope="col">ID</th>
