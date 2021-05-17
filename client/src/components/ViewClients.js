@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import axios from "axios"
+import ClientTable from './ClientTable'
 
 export default function ViewClients() {
 
@@ -9,11 +9,18 @@ export default function ViewClients() {
         getClients()
     }, [])
 
-    const getClients = () => {
-        console.log(`getting clients`)
+    const getClients = async () => {
+        await fetch('/clients/view', {
+            mode: 'no-cors'
+        })
+        .then(response => response.json())
+        .then(data => setClientList(data))
     }
 
     return (
-        <h1 className="clients">viewing clients</h1>
+        <>
+        <h1 className="clients">Your Clients</h1>
+        <ClientTable />
+        </>
     )
 }

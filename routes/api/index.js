@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
     }
 })
 
-router.get('/api/clients/view', async (req, res) => {
+router.get('/clients/view', async (req, res) => {
     try {
         Client.find({})
             .then(result => {
