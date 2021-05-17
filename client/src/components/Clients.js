@@ -16,7 +16,8 @@ const Clients = () => {
                 <Link to="/clients/view"><button className="btn-lg">View Clients</button><br/></Link>
                 <Link to="/clients/add"><button className="btn-lg">Add a new Client</button><br/></Link>
                 <button className="btn-lg">Update a Client</button><br/>
-                <button className="btn-lg">Delete a Client</button>
+                <button className="btn-lg">Delete a Client</button><br/>
+                <button className="btn-lg">Notes/Comments</button>
             </div>
         )
     )
