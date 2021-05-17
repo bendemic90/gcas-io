@@ -20,7 +20,7 @@ export default function ViewClients() {
     return (
         <>
         <h1 className="clients">Your Clients</h1>
-        <ClientTable />
+        <ClientTable clients={clientList}/>
         </>
     )
 }

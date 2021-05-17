@@ -14,7 +14,6 @@ const Profile = () => {
     isAuthenticated ? (
       <div className="profile">
         <h2>Welcome back: {user.name}</h2>
-        {console.log(user)}
         <p>{user.email}</p>
         <Link to="/mainmenu"><button>Main Menu</button></Link>
       </div>
