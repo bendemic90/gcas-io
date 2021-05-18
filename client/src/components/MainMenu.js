@@ -7,7 +7,8 @@ export default function MainMenu() {
         <p>
             <Link to="/clients"><button className="btn-lg">Clients</button></Link><br/>
             <button className="btn-lg">Policies/Procedures</button><br/>
-            <button className="btn-lg">Employees</button>
+            <button className="btn-lg">Employees</button><br/>
+            <Link to="/api-test"><button className="btn-lg">API Testing</button></Link>
         </p>
         </>
     )

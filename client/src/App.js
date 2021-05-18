@@ -10,6 +10,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import Auth0ProviderWithHistory from "./auth/auth0-provider-with-history";
 import ViewClients from "./components/ViewClients";
 import AddClient from "./components/AddClient";
+import ExternalApi from "./auth/auth0-api";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <ProtectedRoute exact path="/mainmenu" component={MainMenu} />
           <ProtectedRoute exact path="/clients/view" component={ViewClients} />
           <ProtectedRoute exact path="/clients/add" component={AddClient} />
+          <ProtectedRoute exact path="/api-test" component={ExternalApi} />
           <Footer />
         </div>
       </Auth0ProviderWithHistory>
