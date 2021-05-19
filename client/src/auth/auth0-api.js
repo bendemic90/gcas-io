@@ -11,7 +11,10 @@ const ExternalApi = () => {
 
   const callApi = async () => {
     try {
-      const response = await fetch(`${serverUrl}/api/messages/public-message`);
+      const response = await fetch(`/api/messages/public-message`, {
+        mode: 'no-cors',
+        method: 'GET'
+      });
 
       const responseData = await response.json();
 
@@ -24,10 +27,10 @@ const ExternalApi = () => {
   const callSecureApi = async () => {
     try {
       const token = await getAccessTokenSilently();
-
       const response = await fetch(
-        `${serverUrl}/api/messages/protected-message`,
+        `/api/messages/protected-message`,
         {
+          mode: 'no-cors',
           headers: {
             Authorization: `Bearer ${token}`,
           },

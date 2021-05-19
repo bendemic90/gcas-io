@@ -5,6 +5,8 @@ const PORT = process.env.PORT || 3001;
 const routes = require("./routes/api")
 const path = require('path');
 const expressSession = require("express-session");
+const jwt = require("express-jwt");
+const jwksRsa = require("jwks-rsa");
 require("dotenv").config();
 
 // session config
@@ -14,6 +16,18 @@ const session = {
   resave: false,
   saveUninitialized: false
 }
+
+const authorizeAccessToken = jwt({
+  secret: jwksRsa.expressJwtSecret({
+    cache: true,
+    rateLimit: true,
+    jwksRequestsPerMinute: 5,
+    jwksUri: `https://localhost:3000/.well-known/jwks.json`
+  }),
+  audience: process.env.AUTH0_AUDIENCE,
+  issuer: process.env.CLIENT_ORIGIN_URL,
+  algorithms: ["RS256"]
+});
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -38,7 +52,14 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/gcas-clients', 
     useFindAndModify: false
 })
 
-// Add routes, both API and view
+app.get('/api/messages/protected-message', authorizeAccessToken, async (req, res) => {
+    try {
+        res.json({ message: `private endpoint` })
+    } catch (err) {
+        res.json({ message: `failed` })
+    }
+})
+
 app.use(routes);
 
 // Start the API server
