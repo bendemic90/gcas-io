@@ -30,7 +30,6 @@ const ExternalApi = () => {
       const response = await fetch(
         `/api/messages/protected-message`,
         {
-          mode: 'no-cors',
           headers: {
             Authorization: `Bearer ${token}`,
           },
