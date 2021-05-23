@@ -5,6 +5,7 @@ const PORT = process.env.PORT || 3001;
 const routes = require("./routes/api")
 const jwt = require("express-jwt");
 const jwksRsa = require("jwks-rsa");
+const { Client } = require("./models/Client")
 require("dotenv").config();
 
 const authorizeAccessToken = jwt({
@@ -47,6 +48,7 @@ app.get('/api/messages/protected-message', authorizeAccessToken, async (req, res
         res.json({ message: `failed` })
     }
 })
+
 
 app.use(routes);
 

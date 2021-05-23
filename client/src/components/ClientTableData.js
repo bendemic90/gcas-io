@@ -1,7 +1,31 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { useAuth0 } from "@auth0/auth0-react";
 
 function ClientTableData(props) {
-  useEffect(() => {}, [props.clients]);
+  const [clients, setClients] = useState([])
+
+  const { getAccessTokenSilently } = useAuth0();
+
+  useEffect(() => {
+    getDatabase()
+  }, []);
+
+  const getDatabase = async () => {
+    try {
+      const token = getAccessTokenSilently();
+      const response = await fetch(
+        `/clients/view`, {
+          headers: {
+            Authorization: `Bearer ${token}`
+          },
+        }
+      )
+      const responseData = response.json()
+      console.log(responseData)
+    } catch (error) {
+
+    }
+  }
 
   return props.clients.map((client) => {
     return (
